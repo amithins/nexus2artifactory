@@ -184,7 +184,7 @@ class Nexus3(object):
         state = self.scr.state["Initial Setup"]
         url = state["Nexus URL"].data
         user = state["Nexus Username"].data
-        pasw = Password.decrypt(state["Nexus Password"].data)
+        pasw = state["Nexus Password"].data
         nx = self.scr.nexus
         nx.vurl, nx.vuser, nx.vpasw = nx.queryNexus(url, user, pasw)
         newpath = state["Nexus Data Directory"].data
