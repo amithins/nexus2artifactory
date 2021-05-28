@@ -5,13 +5,11 @@ import hashlib
 class Password(object):
     @staticmethod
     def encrypt(pasw):
-        key = os.urandom(16)
-        return base64.b64encode(key + Password.crypto(key, pasw))
+        return base64.b64encode(pasw)
 
     @staticmethod
     def decrypt(enc64):
-        enc = base64.b64decode(enc64)
-        return Password.crypto(enc[:16], enc[16:])
+        return base64.b64decode(enc64)
 
     @staticmethod
     def crypto(key, pasw):
